@@ -1,0 +1,155 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
+    // Further reading:
+    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
+    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
+    url      = env("DATABASE_URL")
+    // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+    id                    Int       @id @default(autoincrement())
+    avatarURL             String?
+    firstName             String
+    middleName            String?
+    lastName              String
+    gender                Gender?
+    dateOfBirth           DateTime?
+    email                 String    @unique
+    isEmailVerified       Boolean   @default(false)
+    hashPassword          String
+    phoneNumber           String?   @unique
+    isPhoneNumberVerified Boolean   @default(false)
+    isActive              Boolean   @default(true)
+    createdAt             DateTime  @default(now())
+    updatedAt             DateTime  @updatedAt
+    role                  UserRole
+    patient               Patient?
+    doctor                Doctor?
+    admin                 Admin?
+}
+
+model Admin {
+    userId      Int               @id
+    user        User              @relation(fields: [userId], references: [id])
+    isActive    Boolean           @default(false)
+    permissions AdminPermission[]
+    role        AdminRole
+}
+
+model Patient {
+    userId       Int           @id
+    user         User          @relation(fields: [userId], references: [id])
+    appointments Appointment[]
+}
+
+model Doctor {
+    userId        Int              @id
+    user          User             @relation(fields: [userId], references: [id])
+    title         String?
+    licenseNumber String?
+    // in years
+    experience    Int?
+    isActive      Boolean          @default(false)
+    allowBooking  Boolean          @default(false)
+    specialties   Specialty[]
+    symptoms      Symptom[]
+    services      Service[]
+    schedules     DoctorSchedule[]
+}
+
+model DoctorSchedule {
+    id                 Int                 @id @default(autoincrement())
+    doctorUserId       Int
+    doctor             Doctor              @relation(fields: [doctorUserId], references: [userId])
+    // 1 2 3 4 5 6 7
+    dayOfWeek          Int
+    doctorDailyTimings DoctorDailyTiming[]
+
+    @@unique([dayOfWeek, doctorUserId])
+}
+
+model DoctorDailyTiming {
+    id               Int             @id @default(autoincrement())
+    doctorScheduleId Int
+    doctorSchedule   DoctorSchedule? @relation(fields: [doctorScheduleId], references: [id])
+    // 12:00 in 24 hours format UTC 
+    allowBooking     Boolean         @default(true)
+    startTime        String
+    endTime          String
+    isVirtual        Boolean
+    hospitalId       Int?
+    hospital         Hospital?       @relation(fields: [hospitalId], references: [id])
+    consultationFees Float
+    // in minutes
+    consultationTime Int
+    appointments     Appointment[]
+}
+
+model Hospital {
+    id                 Int                 @id @default(autoincrement())
+    name               String
+    address            String
+    city               String
+    country            String
+    doctorDailyTimings DoctorDailyTiming[]
+}
+
+model Appointment {
+    id                  Int                @id @default(autoincrement())
+    patientUserId       Int
+    patient             Patient            @relation(fields: [patientUserId], references: [userId])
+    startTime           String
+    doctorDailyTiming   DoctorDailyTiming? @relation(fields: [doctorDailyTimingId], references: [id])
+    doctorDailyTimingId Int?
+}
+
+model Specialty {
+    id      Int      @id @default(autoincrement())
+    name    String   @unique
+    doctors Doctor[]
+}
+
+model Symptom {
+    id      Int      @id @default(autoincrement())
+    name    String   @unique
+    doctors Doctor[]
+}
+
+model Service {
+    id      Int      @id @default(autoincrement())
+    name    String   @unique
+    doctors Doctor[]
+}
+
+enum UserRole {
+    DOCTOR
+    PATIENT
+}
+
+enum Gender {
+    MALE
+    FEMALE
+    UNSPECIFIED
+}
+
+enum AdminPermission {
+    READ
+    WRITE
+    DELETE
+    UPDATE
+}
+
+enum AdminRole {
+    SUPER_ADMIN
+    EDITOR
+    AUTHOR
+}
