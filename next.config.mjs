@@ -18,5 +18,14 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+      },
+    ],
+  },
 };
 export default config;

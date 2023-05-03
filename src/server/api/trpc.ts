@@ -32,7 +32,7 @@ type CreateContextOptions = {
  * - testing, so we don't have to mock Next.js' req/res
  * - tRPC's `createSSGHelpers`, where we don't have req/res
  *
- * @see https://create.t3.gg/en/usage/trpc#-serverapitrpcts
+ * @see https://create.t3.gg/en/usage/trpc#-servertrpccontextts
  */
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
@@ -58,6 +58,16 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   });
 };
 
+export const createContext = async (opts?: CreateNextContextOptions) => {
+  const session =
+    opts && (await getServerAuthSession({ req: opts.req, res: opts.res }));
+
+  return {
+    session: session ?? null,
+    prisma,
+  };
+};
+
 /**
  * 2. INITIALIZATION
  *
@@ -68,20 +78,24 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
+import { OpenApiMeta } from "trpc-openapi";
 
-const t = initTRPC.context<typeof createTRPCContext>().create({
-  transformer: superjson,
-  errorFormatter({ shape, error }) {
-    return {
-      ...shape,
-      data: {
-        ...shape.data,
-        zodError:
-          error.cause instanceof ZodError ? error.cause.flatten() : null,
-      },
-    };
-  },
-});
+const t = initTRPC
+  .meta<OpenApiMeta>()
+  .context<typeof createTRPCContext>()
+  .create({
+    transformer: superjson,
+    errorFormatter({ shape, error }) {
+      return {
+        ...shape,
+        data: {
+          ...shape.data,
+          zodError:
+            error.cause instanceof ZodError ? error.cause.flatten() : null,
+        },
+      };
+    },
+  });
 
 /**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)

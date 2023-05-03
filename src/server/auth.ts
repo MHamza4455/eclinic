@@ -19,8 +19,7 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       id: string;
-      // ...other properties
-      // role: UserRole;
+      role: "ADMIN" | "DOCTOR" | "PATIENT";
     } & DefaultSession["user"];
   }
 
@@ -37,20 +36,15 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    session({ session, user }) {
+      if (session.user) {
+        session.user.id = user.id;
+        // session.user.role = user.role; <-- put other properties on the session here
+      }
+      return session;
+    },
   },
-  adapter: PrismaAdapter(prisma),
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
-    }),
     /**
      * ...add more providers here.
      *

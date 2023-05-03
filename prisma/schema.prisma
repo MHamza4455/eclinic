@@ -28,7 +28,7 @@ model User {
     hashPassword          String
     phoneNumber           String?   @unique
     isPhoneNumberVerified Boolean   @default(false)
-    isActive              Boolean   @default(true)
+    isActive              Boolean   @default(false)
     createdAt             DateTime  @default(now())
     updatedAt             DateTime  @updatedAt
     role                  UserRole
@@ -38,11 +38,9 @@ model User {
 }
 
 model Admin {
-    userId      Int               @id
-    user        User              @relation(fields: [userId], references: [id])
-    isActive    Boolean           @default(false)
-    permissions AdminPermission[]
-    role        AdminRole
+    userId Int       @id
+    user   User      @relation(fields: [userId], references: [id])
+    role   AdminRole
 }
 
 model Patient {
@@ -58,7 +56,7 @@ model Doctor {
     licenseNumber String?
     // in years
     experience    Int?
-    isActive      Boolean          @default(false)
+    isVerified    Boolean          @default(false)
     allowBooking  Boolean          @default(false)
     specialties   Specialty[]
     symptoms      Symptom[]
@@ -104,12 +102,12 @@ model Hospital {
 }
 
 model Appointment {
-    id                  Int                @id @default(autoincrement())
+    id                  Int               @id @default(autoincrement())
     patientUserId       Int
-    patient             Patient            @relation(fields: [patientUserId], references: [userId])
-    startTime           String
-    doctorDailyTiming   DoctorDailyTiming? @relation(fields: [doctorDailyTimingId], references: [id])
-    doctorDailyTimingId Int?
+    patient             Patient           @relation(fields: [patientUserId], references: [userId])
+    startTime           DateTime
+    doctorDailyTimingId Int
+    doctorDailyTiming   DoctorDailyTiming @relation(fields: [doctorDailyTimingId], references: [id])
 }
 
 model Specialty {
@@ -133,19 +131,13 @@ model Service {
 enum UserRole {
     DOCTOR
     PATIENT
+    ADMIN
 }
 
 enum Gender {
     MALE
     FEMALE
     UNSPECIFIED
-}
-
-enum AdminPermission {
-    READ
-    WRITE
-    DELETE
-    UPDATE
 }
 
 enum AdminRole {
