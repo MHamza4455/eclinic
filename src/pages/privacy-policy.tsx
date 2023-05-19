@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { NextPage } from "next";
-import React from "react";
+import React, { ReactElement } from "react";
+import { UserLayout } from "~/layouts/UserLayout";
+import { NextPageWithLayout } from "./_app";
 
-const PrivacyPolicyPage: NextPage = () => {
+const PrivacyPolicyPage: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -73,4 +75,7 @@ const PrivacyPolicyPage: NextPage = () => {
   );
 };
 
+PrivacyPolicyPage.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};
 export default PrivacyPolicyPage;

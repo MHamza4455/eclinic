@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { NextPage } from "next";
-import React from "react";
+import React, { ReactElement } from "react";
+import { NextPageWithLayout } from "./_app";
+import { UserLayout } from "~/layouts/UserLayout";
 
-const TermOfUsePage: NextPage = () => {
+const TermOfUsePage: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -243,6 +245,10 @@ const TermOfUsePage: NextPage = () => {
       </div>
     </>
   );
+};
+
+TermOfUsePage.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
 };
 
 export default TermOfUsePage;
