@@ -7,6 +7,7 @@ import { api } from "~/utils/api";
 
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
+import { DoctorCard } from "~/components/DoctorCard";
 const HomePage: NextPageWithLayout = () => {
   return (
     <>
@@ -133,254 +134,283 @@ const HomePage: NextPageWithLayout = () => {
           Specialties
         </h1>
         <ServiceCards />
-        <div className="flex justify-end lg:mx-28" >
+        <div className="flex justify-end lg:mx-28">
           <Link href="#" className="flex">
-            <h1 className="text-lg text-gray-800 mb-5">See All Specialities</h1>
+            <h1 className="mb-5 text-lg text-gray-800">See All Specialities</h1>
             <IoIosArrowForward className="mt-1 text-xl text-gray-800"></IoIosArrowForward>
           </Link>
         </div>
       </div>
-      
-      <div className="w-full mb-5">
+
+      <div className="mb-5 w-full">
         <div className="mx-5 lg:mx-28">
           <div>
-          <h1 className="font-lyft mt-10 text-4xl font-bold text-black">
-            Helping people save on health care, every day.
+            <h1 className="font-lyft mt-10 text-4xl font-bold text-black">
+              Helping people save on health care, every day.
             </h1>
             <h1 className="mt-5 text-justify text-lg  text-black">
-            Feel better knowing you'll always find the best price with the best doctors on E-Clinic.
+              Feel better knowing you'll always find the best price with the
+              best doctors on E-Clinic.
             </h1>
           </div>
         </div>
-
-
       </div>
-    
-      
-      <div className="mx-5 my-10 flex flex-col md:flex-row lg:mx-28">
-       
-       <div className="flex-1 md:w-1/4 md:flex-none">
-       <div className="flex">
-       <div>
-            
-       <h1 className="text-1xl font-bold text-black">Top Specialist - Dermatologist </h1>
-       
-             <ul className=" list-disc list-inside text-large font-normal text-black mx-10 mt-4 ">
-             <li>              Skin                  </li>
-             <li>              Hairs                 </li>
-             <li>              Nails                 </li>
-             <li>             Rashes                 </li>
-             <li>            Wrinkles                </li>
-             <li>            Melanoma                </li>
-             <li>            Psoriasis               </li>
-             </ul>
-             
-             
-           </div>
-         </div>
-       </div>
-       <div className="flex-1 md:w-3/4 md:flex-none">
-         <div className="flex items-center justify-center">
-           <div>
-          
-        <DoctorCard></DoctorCard>
-           </div>
-         </div>
-       </div>
-       
-     </div>
 
-     
-     <div className="w-full mb-5">
+      <div className="mx-5 my-10 flex flex-col md:flex-row lg:mx-28">
+        <div className="flex-1 md:w-1/4 md:flex-none">
+          <div className="flex">
+            <div>
+              <h1 className="text-1xl font-bold text-black">
+                Top Specialist - Dermatologist{" "}
+              </h1>
+
+              <ul className=" text-large mx-10 mt-4 list-inside list-disc font-normal text-black ">
+                <li> Skin </li>
+                <li> Hairs </li>
+                <li> Nails </li>
+                <li> Rashes </li>
+                <li> Wrinkles </li>
+                <li> Melanoma </li>
+                <li> Psoriasis </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="flex-1 md:w-3/4 md:flex-none">
+          <div className="flex items-center justify-center">
+            <div>
+              <DoctorCard></DoctorCard>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-5 w-full">
         <div className="mx-5 lg:mx-28">
           <div>
-            
             <h1 className="mt-5 text-justify text-lg  text-black">
-            A good laugh and a long sleep are the best cures in the doctor's book
+              A good laugh and a long sleep are the best cures in the doctor's
+              book
             </h1>
           </div>
         </div>
-
-
       </div>
 
       <div className="mx-5 my-10 flex flex-col md:flex-row lg:mx-28">
-       
         <div className="flex-1 md:w-2/4 md:flex-none">
           <div className="flex">
             <div>
               <p className="text-xl font-bold text-black">
-              Book the best price telehealth appointment today.
+                Book the best price telehealth appointment today.
               </p>
-              <h1 className="mt-2 text-justify text-md  text-black">
-                
-              Find doctors available today. Pay less than anywhere else.
-            </h1>
-              
+              <h1 className="text-md mt-2 text-justify  text-black">
+                Find doctors available today. Pay less than anywhere else.
+              </h1>
             </div>
           </div>
         </div>
         <div className="flex-1 md:w-2/4 md:flex-none">
           <div className="flex items-center justify-center">
             <div>
-            <button className=" flex w-72 items-center justify-center  rounded-none bg-blue-700 p-4 font-semibold text-white hover:bg-blue-400">
-              Book Telehealth Appointment
-            </button>
+              <button className=" flex w-72 items-center justify-center  rounded-none bg-blue-700 p-4 font-semibold text-white hover:bg-blue-400">
+                Book Telehealth Appointment
+              </button>
             </div>
           </div>
         </div>
-
-      </div>
-      
-
-
-    
-    <footer className="bg-slate-200">  
-
-
-    <div className="mx-3 my-10 flex flex-col md:flex-row">
-       
-        <div className="flex-1 md:w-2/4 md:flex-none">
-          <div className="flex">
-            <div>
-              
-              
-    <h1 className="text-xl font-bold text-black pt-10 md: mx-10 mb-4 font-mono"> Get 20% off today when you join our mailing list. </h1> 
-    
-    <form className="w-3/4 text-xl font-bold text-slate-600 md: mx-12 font-mono">
-    <div className="flex items-center border-b border-slate-500 py-2">
-    <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="jane.doe123@gmail.com" aria-label="Full name"/>
-    <button className="flex-shrink-0 bg-slate-500 hover:bg-slate-700 border-slate-500 hover:border-slate-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-      Send Email
-    </button>
-    </div>
-    </form>
-    
-              
-            </div>
-          </div>
-        </div>
-        <div className="flex-1 md:w-2/4 md:flex-none">
-          <div className="flex items-center justify-center">
-            <div>
-
-
-
-
-            </div>
-          </div>
-        </div>
-
       </div>
 
-    
-    
-    
-    <h1 className="text-xl font-bold text-black pt-6 md: mx-12 mb-8 font-mono"> Find a doctor by </h1> 
-    
-    <div className= "w-full flex flex-col md:flex-row">
- 
-    <div className="flex-1 md:w-1/4 md:flex-none">
-          <div className="flex items-center justify-center">
-          
-          <div>
-                
-           <h1 className="text-1xl font-bold text-slate-600">Location </h1>
-           <h1 className="text-1xl font-bold text-black">______________________________</h1>
-             <ul className=" list-disc list-inside text-large font-normal text-black  mt-4 ">
-             <button>             Lahore                 </button><br></br>
-             <button>             Karachi                </button><br></br>
-             <button>             Islamabad              </button><br></br>
-             <button>             Peshawar                </button><br></br>
-             <button>             Gujranwala               </button><br></br>
-             <button>             Gujrat                   </button><br></br>
-             <button>             Faisalabad               </button><br></br>
-             </ul>
+      <footer className="bg-slate-200">
+        <div className="mx-3 my-10 flex flex-col md:flex-row">
+          <div className="flex-1 md:w-2/4 md:flex-none">
+            <div className="flex">
+              <div>
+                <h1 className="md: mx-10 mb-4 pt-10 font-mono text-xl font-bold text-black">
+                  {" "}
+                  Get 20% off today when you join our mailing list.{" "}
+                </h1>
+
+                <form className="md: mx-12 w-3/4 font-mono text-xl font-bold text-slate-600">
+                  <div className="flex items-center border-b border-slate-500 py-2">
+                    <input
+                      className="mr-3 w-full appearance-none border-none bg-transparent px-2 py-1 leading-tight text-gray-700 focus:outline-none"
+                      type="text"
+                      placeholder="jane.doe123@gmail.com"
+                      aria-label="Full name"
+                    />
+                    <button
+                      className="flex-shrink-0 rounded border-4 border-slate-500 bg-slate-500 px-2 py-1 text-sm text-white hover:border-slate-700 hover:bg-slate-700"
+                      type="button"
+                    >
+                      Send Email
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 md:w-2/4 md:flex-none">
+            <div className="flex items-center justify-center">
+              <div></div>
             </div>
           </div>
         </div>
-        <div className="flex-1 md:w-1/4 md:flex-none">
+
+        <h1 className="md: mx-12 mb-8 pt-6 font-mono text-xl font-bold text-black">
+          {" "}
+          Find a doctor by{" "}
+        </h1>
+
+        <div className="flex w-full flex-col md:flex-row">
+          <div className="flex-1 md:w-1/4 md:flex-none">
+            <div className="flex items-center justify-center">
+              <div>
+                <h1 className="text-1xl font-bold text-slate-600">Location </h1>
+                <h1 className="text-1xl font-bold text-black">
+                  ______________________________
+                </h1>
+                <ul className=" text-large mt-4 list-inside list-disc font-normal  text-black ">
+                  <button> Lahore </button>
+                  <br></br>
+                  <button> Karachi </button>
+                  <br></br>
+                  <button> Islamabad </button>
+                  <br></br>
+                  <button> Peshawar </button>
+                  <br></br>
+                  <button> Gujranwala </button>
+                  <br></br>
+                  <button> Gujrat </button>
+                  <br></br>
+                  <button> Faisalabad </button>
+                  <br></br>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 md:w-1/4 md:flex-none">
+            <div className="flex items-center justify-center">
+              <div>
+                <h1 className="text-1xl font-bold text-slate-600">Symptoms </h1>
+                <h1 className="text-1xl font-bold text-black">
+                  ______________________________
+                </h1>
+                <ul className=" text-large mt-4 list-inside list-disc font-normal text-black ">
+                  <button> Fever </button>
+                  <br></br>
+                  <button> Flu </button>
+                  <br></br>
+                  <button> Anxiety </button>
+                  <br></br>
+                  <button> Depression </button>
+                  <br></br>
+                  <button> Ear Infection </button>
+                  <br></br>
+                  <button> Back Pain </button>
+                  <br></br>
+                  <button> Vaginal Itching </button>
+                  <br></br>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 md:w-1/4 md:flex-none">
+            <div className="flex items-center justify-center">
+              <div>
+                <h1 className="text-1xl font-bold text-slate-600">Caretype </h1>
+                <h1 className="text-1xl font-bold text-black">
+                  ______________________________
+                </h1>
+                <ul className=" text-large mt-4 list-inside list-disc font-normal text-black ">
+                  <button> Urgent Care </button>
+                  <br></br>
+                  <button> Skin Care </button>
+                  <br></br>
+                  <button> Prescription Refills </button>
+                  <br></br>
+                  <button> Mental Health </button>
+                  <br></br>
+                  <button> Wellness and Preventions </button>
+                  <br></br>
+                  <button> Women Health </button>
+                  <br></br>
+                  <button> Men Health </button>
+                  <br></br>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 md:w-1/4 md:flex-none">
+            <div className="flex items-center justify-center">
+              <div>
+                <h1 className="text-1xl font-bold text-slate-600">
+                  Speciality{" "}
+                </h1>
+                <h1 className="text-1xl font-bold text-black">
+                  ______________________________
+                </h1>
+                <ul className=" text-large mt-4 list-inside list-disc font-normal text-black ">
+                  <button> Family Medicine </button>
+                  <br></br>
+                  <button> General Doctor </button>
+                  <br></br>
+                  <button> Primary Care </button>
+                  <br></br>
+                  <button> Therapist </button>
+                  <br></br>
+                  <button> Pediatrician </button>
+                  <br></br>
+                  <button> OB-GYN </button>
+                  <br></br>
+                  <button> Psychiatrist </button>
+                  <br></br>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex-1 pt-10 md:w-1/4 md:flex-none ">
           <div className="flex items-center justify-center">
             <div>
-            <h1 className="text-1xl font-bold text-slate-600">Symptoms </h1>
-           <h1 className="text-1xl font-bold text-black">______________________________</h1>
-             <ul className=" list-disc list-inside text-large font-normal text-black mt-4 ">
-             <button>               Fever                 </button><br></br>
-             <button>               Flu                </button><br></br>
-             <button>               Anxiety              </button><br></br>
-             <button>              Depression                </button><br></br>
-             <button>             Ear Infection               </button><br></br>
-             <button>             Back Pain                  </button><br></br>
-             <button>             Vaginal Itching               </button><br></br>
-             </ul>
-            </div>
-          </div>
-        </div>
-        <div className="flex-1 md:w-1/4 md:flex-none">
-          <div className="flex items-center justify-center">
-            <div>
-            <h1 className="text-1xl font-bold text-slate-600">Caretype </h1>
-           <h1 className="text-1xl font-bold text-black">______________________________</h1>
-             <ul className=" list-disc list-inside text-large font-normal text-black mt-4 ">
-             <button>               Urgent Care                 </button><br></br>
-             <button>               Skin Care                </button><br></br>
-             <button>               Prescription Refills              </button><br></br>
-             <button>              Mental Health                </button><br></br>
-             <button>             Wellness and Preventions               </button><br></br>
-             <button>                 Women Health               </button><br></br>
-             <button>            Men Health                 </button><br></br>
-             </ul>
-            </div>
-          </div>
-        </div>
-        <div className="flex-1 md:w-1/4 md:flex-none">
-          <div className="flex items-center justify-center">
-            <div>
-            <h1 className="text-1xl font-bold text-slate-600">Speciality </h1>
-           <h1 className="text-1xl font-bold text-black">______________________________</h1>
-             <ul className=" list-disc list-inside text-large font-normal text-black mt-4 ">
-             <button>               Family Medicine                 </button><br></br>
-             <button>               General Doctor                </button><br></br>
-             <button>               Primary Care              </button><br></br>
-             <button>              Therapist                </button><br></br>
-             <button>             Pediatrician               </button><br></br>
-             <button>             OB-GYN                  </button><br></br>
-             <button>             Psychiatrist              </button><br></br>
-             </ul>
-            </div>
-          </div>
-        </div>
-   
-
-    </div>
-    
-    <div className="flex-1 pt-10 md:w-1/4 md:flex-none ">
-          <div className="flex items-center justify-center">
-            <div>
-            <h1 className="text-2xl font-bold text-slate-600">E-Clinic </h1>
-           <h1 className="text-1xl font-bold text-black">______________________________</h1>
-             <ul className=" list-disc list-inside text-large font-normal text-black mt-4 ">
-             <button>               About                </button><br></br>
-             <button>               Team                </button><br></br>
-             <button>               Blog             </button><br></br>
-             <button>              Term of Service                </button><br></br>
-             <button>             Privacy Policy               </button><br></br>
-             <button>             FAQ                 </button><br></br>
-             </ul>
+              <h1 className="text-2xl font-bold text-slate-600">E-Clinic </h1>
+              <h1 className="text-1xl font-bold text-black">
+                ______________________________
+              </h1>
+              <ul className=" text-large mt-4 list-inside list-disc font-normal text-black ">
+                <button> About </button>
+                <br></br>
+                <button> Team </button>
+                <br></br>
+                <button> Blog </button>
+                <br></br>
+                <Link
+                  href="/terms-of-use"
+                  className="text-black hover:text-purple-600"
+                >
+                  Term of Service
+                </Link>
+                <br></br>
+                <Link
+                  href="/privacy-policy"
+                  className="text-black hover:text-purple-600"
+                >
+                  Privacy Policy
+                </Link>
+                <br></br>
+                <Link href="/faq" className="text-black hover:text-purple-600">
+                  Faq
+                </Link>
+                <br></br>
+              </ul>
             </div>
           </div>
         </div>
 
-
-
-
-
-
-
-
-    <h1 className="text-sm text-slate-400 mt-5 mx-10 font-mono"> 
-    @2023 E-Clinic All Rights Reserved.</h1> 
-    </footer>
+        <h1 className="mx-10 mt-5 font-mono text-sm text-slate-400">
+          @2023 E-Clinic All Rights Reserved.
+        </h1>
+      </footer>
     </>
   );
 };

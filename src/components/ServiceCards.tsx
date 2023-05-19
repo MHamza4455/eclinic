@@ -15,7 +15,7 @@ export const ServiceCards: FC = () => {
         >
           <div className="h-52 p-1">
             <div className="flex justify-between">
-              <h2 className="font-lyft text-2xl text-black">Dentist</h2>
+              <h2 className="font-lyft text-xl text-black">Dentist</h2>
               <BsArrowRight className="text-3xl font-semibold text-black" />
             </div>
             <div className="flex h-full w-full items-center justify-center">
@@ -29,7 +29,7 @@ export const ServiceCards: FC = () => {
         >
           <div className="h-52 p-1">
             <div className="flex justify-between">
-              <h2 className="font-lyft text-2xl text-black">Heart Surgeon</h2>
+              <h2 className="font-lyft text-xl text-black">Heart Surgeon</h2>
               <BsArrowRight className="text-3xl font-semibold text-black" />
             </div>
             <div className="flex h-full w-full items-center justify-center">
@@ -43,7 +43,7 @@ export const ServiceCards: FC = () => {
         >
           <div className="h-52 p-1">
             <div className="flex justify-between">
-              <h2 className="font-lyft text-2xl text-black">Allergy Doctor</h2>
+              <h2 className="font-lyft text-xl text-black">Allergy Doctor</h2>
               <BsArrowRight className="text-3xl font-semibold text-black" />
             </div>
             <div className="flex h-full w-full items-center justify-center">
@@ -57,7 +57,7 @@ export const ServiceCards: FC = () => {
         >
           <div className="h-52 p-1">
             <div className="flex justify-between">
-              <h2 className="font-lyft text-2xl text-black">General Doctor</h2>
+              <h2 className="font-lyft text-xl text-black">General Doctor</h2>
               <BsArrowRight className="text-3xl font-semibold text-black" />
             </div>
             <div className="flex h-full w-full items-center justify-center">
