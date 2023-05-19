@@ -5,35 +5,68 @@ import { FaThumbsUp } from "react-icons/fa";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { TbCertificate2 } from "react-icons/tb";
 
+import { BsArrowRight } from "react-icons/bs";
+
+import { Footer } from "~/components/footer";
 import Link from "next/link";
 import { DoctorCard } from "~/components/DoctorCard";
 import { UserLayout } from "~/layouts/UserLayout";
-
-import { Footer } from "~/components/footer";
 import { NextPageWithLayout } from "../_app";
-const ServicePage: NextPageWithLayout = () => {
+const SpecialityPage: NextPageWithLayout = () => {
   return (
     <>
       <div className="mt-20 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1">
         <div className="lg:flex lg:justify-center ">
-          <div className="p-10 lg:w-[450px]">
+          <div className="mt-10 lg:w-[450px]">
             <h1 className="font-lyft mt-1 text-4xl font-bold ">
-              Find the best price for great online doctor visits.{" "}
-              <span className="text-blue-700"> Pay direct to save.</span>
+            Affordable <span className="text-blue-700"> pediatric appointments   </span>near me
             </h1>
-            <p className="mt-5 text-base ">
-              Affordable, hassle-free telehealth appointments from quality
-              healthcare providers on your schedule. No membership fees, no
-              surprise bills, no insurance needed.
+            <p className="mt-5 text-xs text-slate-500 ">
+            Ear infection, flu, cold, rash, sinus, and other pediatric appointments for kids
             </p>
-            <button className="my-5 flex w-44 items-center justify-center rounded-none bg-blue-700 p-4 font-semibold text-white hover:bg-blue-400">
-              Book Online
+            <button className="my-5 flex w-80 items-center justify-center rounded-none border  border-blue-700 bg-white p-4 font-semibold text-blue-700 hover:bg-blue-100">
+              Book Online 
             </button>
+
+            <div className="h-30 w-full flex">
+            <div className="flex w-1/2 p-3 bg-slate-100 drop-shadow-2xl">
+              <h2 className="font-lyft text-lg text-black">Well Baby Consult</h2>
+              <BsArrowRight className="text-xl font-semibold text-black pt-2" />
+            </div>
+          
+            <div className="flex w-1/2 mx-5 p-3 bg-slate-100 drop-shadow-2xl">
+              <h2 className="font-lyft text-lg text-black">  Pediatrics consultation   </h2>
+              <BsArrowRight className="text-xl font-semibold text-black pt-2" />
+            </div>
+
+
+            </div>
+
+            <div className="h-30 w-full flex-col mt-5">
+            <div className="flex w-1/2 p-3 bg-slate-100 drop-shadow-2xl">
+              <h2 className="font-lyft text-lg text-black">Video Pediatrics visit</h2>
+              <BsArrowRight className="text-xl font-semibold text-black pt-2" />
+            </div>
+          
+            <div className="flex w-1/2 mt-5 mb-5 p-3 bg-slate-100 drop-shadow-2xl">
+              <h2 className="font-lyft text-lg text-black">  Video lactations   </h2>
+              <BsArrowRight className="text-xl font-semibold text-black pt-2" />
+            </div>
+
+
+            </div>
+
+            
+
+    
+
+            
+
           </div>
         </div>
         <div className="flex h-full w-full">
           <Image
-            src="/images/backgrounds/ts.jpg"
+            src="/images/backgrounds/speciality_bg.jpg"
             alt="NewYorkCityTaxis-Curb"
             width="1000"
             height="1000"
@@ -238,8 +271,8 @@ const ServicePage: NextPageWithLayout = () => {
     </>
   );
 };
-ServicePage.getLayout = function getLayout(page: ReactElement) {
+SpecialityPage.getLayout = function getLayout(page: ReactElement) {
   return <UserLayout>{page}</UserLayout>;
 };
 
-export default ServicePage;
+export default SpecialityPage;

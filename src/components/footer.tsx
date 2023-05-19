@@ -3,7 +3,7 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="bg-slate-200">
+    <footer className="bg-slate-100">
       <div className="mx-3 my-10 flex flex-col md:flex-row">
         <div className="flex-1 md:w-2/4 md:flex-none">
           <div className="flex">
@@ -159,11 +159,27 @@ export const Footer = () => {
               ______________________________
             </h1>
             <ul className=" text-large mt-4 list-inside list-disc font-normal text-black ">
-              <button> About </button>
+              
+            <Link
+                href="/about"
+                className="text-black hover:text-purple-600"
+              >
+                 About
+              </Link>
               <br></br>
-              <button> Team </button>
+              <Link
+                href="/about"
+                className="text-black hover:text-purple-600"
+              >
+                 Team
+              </Link>
               <br></br>
-              <button> Blog </button>
+              <Link
+                href="/about"
+                className="text-black hover:text-purple-600"
+              >
+                 Blog
+              </Link>
               <br></br>
               <Link
                 href="/terms-of-use"

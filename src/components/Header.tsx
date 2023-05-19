@@ -164,7 +164,7 @@ export const Header: FC = () => {
                     <section className="font-medium [&>*]:py-2 [&>*]:pl-4">
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Dermatologist
@@ -172,7 +172,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           General Physician
@@ -180,7 +180,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Gastroenterologist
@@ -188,7 +188,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Urologist
@@ -196,7 +196,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Cardiologist
@@ -204,7 +204,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           General Physician
@@ -212,7 +212,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Psychiatrist
@@ -220,7 +220,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Neurologist
@@ -228,7 +228,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           All medical specialties
@@ -257,7 +257,7 @@ export const Header: FC = () => {
                     <section className="font-medium [&>*]:py-2 [&>*]:pl-4">
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Fever
@@ -265,7 +265,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Heart Attack
@@ -273,7 +273,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Breathlessness
@@ -281,7 +281,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Migraine
@@ -289,7 +289,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Anxiety/Depression
@@ -297,7 +297,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Diarrhea
@@ -305,7 +305,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Blood pressure
@@ -313,7 +313,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Acne
@@ -321,7 +321,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/specialities"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           See all symptoms
@@ -350,7 +350,7 @@ export const Header: FC = () => {
                     <section className="font-medium [&>*]:py-2 [&>*]:pl-4">
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           IVF
@@ -358,7 +358,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Braces
@@ -366,7 +366,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Chemotherapy
@@ -374,7 +374,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Open heart surgery
@@ -382,7 +382,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           HydraFacial
@@ -390,7 +390,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           MRI
@@ -398,7 +398,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           CT Scan
@@ -406,7 +406,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           Laser hair removal
@@ -414,7 +414,7 @@ export const Header: FC = () => {
                       </div>
                       <div className="text-sm">
                         <Link
-                          href=""
+                          href="/services/services"
                           className="text-gray-500 hover:text-purple-600"
                         >
                           All medical services
