@@ -1,7 +1,6 @@
 import { type ReactElement } from "react";
 import { UserLayout } from "~/layouts/UserLayout";
 import { type NextPageWithLayout } from "./_app";
-import { DoctorCard } from "~/components/DoctorCard";
 import { CarasoulItem } from "~/components/CarasoulItem";
 import { ServiceCards } from "~/components/ServiceCards";
 import { api } from "~/utils/api";
@@ -90,7 +89,7 @@ const HomePage: NextPageWithLayout = () => {
             <h1 className="font-lyft mt-10 text-4xl font-bold text-black">
               Top-rated online doctors & specialists available now.
             </h1>
-            <h1 className="mt-5 text-justify text-lg font-thin text-black">
+            <h1 className="mt-5 text-justify text-lg text-black">
               Choose from thousands of providers at every day affordable prices.
               Book online today.
             </h1>
