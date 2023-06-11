@@ -8,6 +8,7 @@ import { Footer } from "~/components/footer";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import { DoctorCard } from "~/components/DoctorCard";
+import { ChatBot } from "~/components/ChatBot";
 const HomePage: NextPageWithLayout = () => {
   return (
     <>
@@ -219,6 +220,7 @@ const HomePage: NextPageWithLayout = () => {
           </div>
         </div>
       </div>
+      <ChatBot />
       <Footer />
     </>
   );
