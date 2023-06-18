@@ -18,6 +18,7 @@
     "@trpc/next": "^10.18.0",
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
+    "@zegocloud/zego-uikit-prebuilt": "^1.8.4",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "framer-motion": "^10.12.7",
