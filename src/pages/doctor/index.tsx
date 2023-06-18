@@ -1,10 +1,10 @@
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import Link from "next/link";
 import { prisma } from "lib/prisma";
 import { NextPageWithLayout } from "../_app";
 import { UserLayout } from "~/layouts/UserLayout";
-import React, { ReactElement } from "react";
+import React, { Key, ReactElement } from "react";
 import Image from "next/image";
 import dayjs from "dayjs";
 import clsx from "clsx";
@@ -16,6 +16,7 @@ const avatar =
 interface Doctors {
   doctors: {
     id: Key | null | undefined;
+    userId: number;
     user: any;
     title: string;
     licenseNumber: string;
@@ -53,7 +54,7 @@ const Doctor: NextPageWithLayout = ({ doctors }: Doctors) => {
           <div className="mb-5 flex w-11/12 flex-col justify-between border bg-slate-50 p-5 shadow-xl drop-shadow-sm lg:w-[46rem] lg:flex-row">
             <div className="flex flex-col gap-4 lg:w-[24rem]">
               <div className="flex gap-5">
-                <div className="relative inline-block">
+                <Link href="/" className="relative inline-block">
                   {avatar ? (
                     <Image
                       width={500}
@@ -91,16 +92,16 @@ const Doctor: NextPageWithLayout = ({ doctors }: Doctors) => {
                       </svg>
                     </span>
                   )}
-                </div>
+                </Link>
               </div>
-              <div className="flex flex-col">
+              <Link href={`/doctor/${doctor.userId}`} className="flex flex-col">
                 <span className="overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bold capitalize text-purple-700">
                   {doctor.user.firstName} {doctor.user.lastName}
                 </span>
                 <span className="overflow-hidden text-ellipsis whitespace-nowrap text-base capitalize text-purple-900">
                   <h3 className="font-bold">{doctor.title}</h3>
                 </span>
-              </div>
+              </Link>
               <div className="main flex gap-20">
                 <div className="first">
                   <span className="overflow-hidden text-ellipsis whitespace-nowrap capitalize">
@@ -111,7 +112,7 @@ const Doctor: NextPageWithLayout = ({ doctors }: Doctors) => {
                   </span>
                 </div>
                 <div className="second">
-                  <span className="overflow-hidden text-ellipsis whitespace-nowrap text-sm font-light capitalize">
+                  <span className="overflow-hidden text-ellipsis whitespace-nowrap capitalize">
                     <h3 className="font-bold">Services:</h3>
                     {doctor.services.map((service) => (
                       <p key={service.id}>{service.name}</p>
@@ -187,8 +188,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
       address: true,
       fees: true,
       discount: true,
+      userId: true,
       user: {
         select: {
+          id: true,
           firstName: true,
           lastName: true,
           gender: true,
