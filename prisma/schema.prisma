@@ -56,6 +56,9 @@ model Doctor {
     licenseNumber String?
     // in years
     experience    Int?
+    fees          Int?
+    discount      Int?
+    address       String?
     isVerified    Boolean          @default(false)
     allowBooking  Boolean          @default(false)
     specialties   Specialty[]
