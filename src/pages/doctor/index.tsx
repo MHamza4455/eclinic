@@ -19,6 +19,7 @@ interface Doctors {
     user: any;
     title: string;
     licenseNumber: string;
+    address: string;
     experience: number;
     fees: number;
     discount: number;
@@ -49,7 +50,7 @@ const Doctor: NextPageWithLayout = ({ doctors }: Doctors) => {
       <div>
         <h1 className="mt-4 text-center text-2xl font-bold">Doctors</h1>
         {doctors.map((doctor) => (
-          <div className="flex w-11/12 flex-col justify-between border p-5 drop-shadow-sm lg:w-[46rem] lg:flex-row">
+          <div className="mb-5 flex w-11/12 flex-col justify-between border bg-slate-50 p-5 shadow-xl drop-shadow-sm lg:w-[46rem] lg:flex-row">
             <div className="flex flex-col gap-4 lg:w-[24rem]">
               <div className="flex gap-5">
                 <div className="relative inline-block">
@@ -150,7 +151,7 @@ const Doctor: NextPageWithLayout = ({ doctors }: Doctors) => {
                 </span>
               </div>
               <div className="text-justify text-xs tracking-tight">
-                doctor.address
+                {doctor.address}
               </div>
               <div className="">
                 <button className="w-52 rounded-lg bg-blue-500 px-4 py-2 text-white transition-all ease-in-out hover:bg-blue-600">
@@ -183,6 +184,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       allowBooking: true,
       specialties: true,
       services: true,
+      address: true,
       fees: true,
       discount: true,
       user: {

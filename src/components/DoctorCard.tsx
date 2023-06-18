@@ -27,7 +27,7 @@ export const DoctorCard: FC = () => {
 
   return (
     <>
-      <div className="flex w-11/12 flex-col justify-between border p-5 drop-shadow-sm lg:w-[46rem] lg:flex-row">
+      <div className=" flex w-11/12 flex-col justify-between border p-5 drop-shadow-sm lg:w-[46rem] lg:flex-row">
         <div className="flex flex-col gap-4 lg:w-[24rem]">
           <div className="flex flex-col">
             <span className="overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold capitalize text-purple-700">
