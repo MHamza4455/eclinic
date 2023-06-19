@@ -6,12 +6,13 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
+    provider = "mysql"
     // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
     // Further reading:
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
     // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
     url      = env("DATABASE_URL")
+    relationMode = "prisma"
     // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
@@ -41,12 +42,16 @@ model Admin {
     userId Int       @id
     user   User      @relation(fields: [userId], references: [id])
     role   AdminRole
+
+    @@index([userId])
 }
 
 model Patient {
     userId       Int           @id
     user         User          @relation(fields: [userId], references: [id])
     appointments Appointment[]
+
+    @@index([userId])
 }
 
 model Doctor {
@@ -65,6 +70,8 @@ model Doctor {
     symptoms      Symptom[]
     services      Service[]
     schedules     DoctorSchedule[]
+
+    @@index([userId])
 }
 
 model DoctorSchedule {
@@ -76,6 +83,7 @@ model DoctorSchedule {
     doctorDailyTimings DoctorDailyTiming[]
 
     @@unique([dayOfWeek, doctorUserId])
+    @@index([doctorUserId])
 }
 
 model DoctorDailyTiming {
@@ -93,6 +101,9 @@ model DoctorDailyTiming {
     // in minutes
     consultationTime Int
     appointments     Appointment[]
+
+    @@index([doctorScheduleId])
+    @@index([hospitalId])
 }
 
 model Hospital {
@@ -111,6 +122,9 @@ model Appointment {
     startTime           DateTime
     doctorDailyTimingId Int
     doctorDailyTiming   DoctorDailyTiming @relation(fields: [doctorDailyTimingId], references: [id])
+
+    @@index([patientUserId])
+    @@index([doctorDailyTimingId])
 }
 
 model Specialty {
