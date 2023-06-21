@@ -154,10 +154,13 @@ const Doctor: NextPageWithLayout = ({ doctors }: Doctors) => {
               <div className="text-justify text-xs tracking-tight">
                 {doctor.address}
               </div>
-              <div className="">
-                <button className="w-52 rounded-lg bg-blue-500 px-4 py-2 text-white transition-all ease-in-out hover:bg-blue-600">
+              <div className="mt-4">
+                <Link
+                  href={`/bookAppoinment/${doctor.userId}`}
+                  className=" w-52 rounded-lg bg-blue-500 p-3 px-7 text-white transition-all ease-in-out hover:bg-blue-600"
+                >
                   Book Appointment
-                </button>
+                </Link>
                 <button className="mt-4 w-52 rounded-lg bg-rose-500 px-4 py-2 text-white transition-all ease-in-out hover:bg-rose-600">
                   Video Consulting
                 </button>

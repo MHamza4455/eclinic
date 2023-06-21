@@ -21,7 +21,6 @@ export class ChatBot extends Component {
       m._globals = kommunicateSettings;
       // @ts-ignore
     })(document, window.kommunicate || {});
-    /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
   }
   render() {
     return <div></div>;

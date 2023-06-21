@@ -36,6 +36,7 @@ model User {
     patient               Patient?
     doctor                Doctor?
     admin                 Admin?
+   
 }
 
 model Admin {
@@ -70,6 +71,7 @@ model Doctor {
     symptoms      Symptom[]
     services      Service[]
     schedules     DoctorSchedule[]
+    bookAppointment  BookAppoinment[]
 
     @@index([userId])
 }
@@ -114,7 +116,18 @@ model Hospital {
     country            String
     doctorDailyTimings DoctorDailyTiming[]
 }
+model BookAppoinment {
+    
+    id          Int      @id @default(autoincrement())
+    doctorId    Int      
+    doctor      Doctor   @relation(fields: [doctorId], references: [userId])
+    name        String   @unique
+    address     String?
+    phoneNo     String?
+    email       String?
 
+    @@index([doctorId])
+}
 model Appointment {
     id                  Int               @id @default(autoincrement())
     patientUserId       Int
@@ -162,3 +175,5 @@ enum AdminRole {
     EDITOR
     AUTHOR
 }
+
+
