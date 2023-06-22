@@ -26,7 +26,7 @@ export const CarasoulItem: FC = () => {
   return (
     <div className="mx-0 md:mx-0 lg:mx-28">
       <Carousel responsive={responsive}>
-        <Link href="/services/services" className="shadow-xl">
+        <Link href="/services/doctor" className="shadow-xl">
           <div className="mx-2 bg-slate-200 p-5 hover:bg-pink-100 ">
             <VscDeviceCameraVideo className="text-4xl text-black" />
             <h1 className="font-lyft text-2xl font-bold text-black">
