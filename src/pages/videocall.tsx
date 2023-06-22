@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { APP_ID, SERVER_SECRET } from './constants';
+
+import Footer from "~/components/footer";
 import {ZegoUIKitPrebuilt} from '@zegocloud/zego-uikit-prebuilt';
+import { Header } from '~/components/Header';
 export default function App() {
   const roomID = 'Eclinic';
 
@@ -51,5 +54,11 @@ export default function App() {
     }
   }, []);
 
-  return <div id="meeting-container" style={{ width: '100vw', height: '100vh' }}></div>;
+  return (
+    <>
+    <Header></Header>
+  <div className='mt-32' id="meeting-container" style={{ width: '100vw', height: '100vh' }}></div>
+  <Footer></Footer>
+  </>
+  )
 }
