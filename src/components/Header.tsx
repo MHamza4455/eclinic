@@ -7,10 +7,10 @@ import { GrClose } from "react-icons/gr";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { AnimatePresence, motion } from "framer-motion";
 import OutsideClickHandler from "react-outside-click-handler";
-import { SignOutButton, useUser } from "@clerk/nextjs";
+import { SignOutButton, UserButton, useUser } from "@clerk/nextjs";
 
 export const Header: FC = () => {
-  const { isSignedIn: sessionStatus, user: sessionData } = useUser();
+  const { isSignedIn, user: sessionData } = useUser();
 
   const [showSideNav, setShowSideNav] = useState(false);
 
@@ -57,19 +57,11 @@ export const Header: FC = () => {
                 placeholder="symptom, service, doctor name"
               />
             </div>
-            {sessionData?.unsafeMetadata?.role === "PATIENT" ? (
-              <Link
-                href=""
-                className="group flex items-center gap-2 hover:text-purple-600"
-              >
-                <RiUser6Line className="text-2xl" />
-                <span className="font-semibold tracking-tighter group-hover:underline group-hover:underline-offset-2">
-                  ACCOUNT
-                </span>
-              </Link>
+            {isSignedIn ? (
+              <UserButton />
             ) : (
               <Link
-                href="/auth/login"
+                href="/login"
                 className="group flex items-center gap-2 hover:text-purple-600"
               >
                 <RiUser6Line className="text-2xl" />
@@ -140,7 +132,7 @@ export const Header: FC = () => {
                   </div>
                 )}
 
-                <div className="mt-3 flex flex-col font-semibold tracking-tight [&>*]:border-b [&>*]:border-purple-300 [&>*]:py-4 [&>div:hover]:border-purple-600 [&>div:hover]:text-purple-600 [&>div]:flex [&>div]:cursor-pointer [&>div]:justify-between">
+                <div className="mt-3 flex flex-col font-semibold tracking-tight [&>*]:py-4 [&>]:border-b [&>]:border-purple-300 [&>div:hover]:border-purple-600 [&>div:hover]:text-purple-600 [&>div]:flex [&>div]:cursor-pointer [&>div]:justify-between">
                   <p className="text-gray-500">FIND APPOINTMENTS BY :</p>
 
                   <div
@@ -160,7 +152,7 @@ export const Header: FC = () => {
                     )}
                   </div>
                   {showSpecialties && (
-                    <section className="font-medium [&>*]:py-2 [&>*]:pl-4">
+                    <section className="font-medium [&>]:py-2 [&>]:pl-4">
                       <div className="text-sm">
                         <Link
                           href="/services/specialities"
@@ -253,7 +245,7 @@ export const Header: FC = () => {
                     )}
                   </div>
                   {showSymptoms && (
-                    <section className="font-medium [&>*]:py-2 [&>*]:pl-4">
+                    <section className="font-medium [&>]:py-2 [&>]:pl-4">
                       <div className="text-sm">
                         <Link
                           href="/services/specialities"
@@ -346,7 +338,7 @@ export const Header: FC = () => {
                     )}
                   </div>
                   {showServices && (
-                    <section className="font-medium [&>*]:py-2 [&>*]:pl-4">
+                    <section className="font-medium [&>]:py-2 [&>]:pl-4">
                       <div className="text-sm">
                         <Link
                           href="/services/services"
@@ -422,28 +414,6 @@ export const Header: FC = () => {
                     </section>
                   )}
                 </div>
-
-                {sessionStatus !== "authenticated" && (
-                  <div className="mt-6 flex flex-col font-semibold tracking-tight [&>*]:py-2.5">
-                    <p className="text-gray-500">ACCOUNT</p>
-                    <div>
-                      <Link
-                        href="/auth/login"
-                        className="hover:text-purple-600"
-                      >
-                        Log in
-                      </Link>
-                    </div>
-                    <div>
-                      <Link
-                        href="/auth/register"
-                        className="hover:text-purple-600"
-                      >
-                        Sign up
-                      </Link>
-                    </div>
-                  </div>
-                )}
 
                 <div className="mt-6 flex flex-col font-semibold tracking-tight [&>*]:py-2.5">
                   <p className="text-gray-500">PLATFORM</p>

@@ -24,7 +24,7 @@ export const ServiceCards: FC = () => {
           </div>
         </Link>
         <Link
-          href="/services/specialities"
+          href="/specialities/doctor"
           className="flex-basis-0 m-4 w-60 flex-shrink-0 flex-grow-0 rounded-lg bg-white p-4 shadow-lg hover:bg-gray-200"
         >
           <div className="h-52 p-1">
@@ -38,7 +38,7 @@ export const ServiceCards: FC = () => {
           </div>
         </Link>
         <Link
-          href="/services/specialities"
+          href="/specialities/doctor"
           className="flex-basis-0 m-4 w-60 flex-shrink-0 flex-grow-0 rounded-lg bg-white p-4 shadow-lg hover:bg-gray-200"
         >
           <div className="h-52 p-1">
@@ -52,7 +52,7 @@ export const ServiceCards: FC = () => {
           </div>
         </Link>
         <Link
-          href="/services/specialities"
+          href="/specialities/doctor"
           className="flex-basis-0 m-4 w-60 flex-shrink-0 flex-grow-0 rounded-lg bg-white p-4 shadow-lg hover:bg-gray-200"
         >
           <div className="h-52 p-1">

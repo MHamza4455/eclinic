@@ -179,7 +179,14 @@ const BookAppointment: NextPageWithLayout = ({
               </div>
               <button
                 type="submit"
-                onClick={() => alert("Your Appointment Has Been Booked.")}
+                onClick={async () => {
+                  if (
+                    window.confirm("Are You Sure You Want To Book Appointment?")
+                  ) {
+                    alert("Your Appointment Has Been Booked.");
+                    router.push("/");
+                  }
+                }}
                 className="rounded bg-blue-500 p-3 text-white"
               >
                 Submit
