@@ -6,11 +6,11 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { GrClose } from "react-icons/gr";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { AnimatePresence, motion } from "framer-motion";
-import { signOut, useSession } from "next-auth/react";
 import OutsideClickHandler from "react-outside-click-handler";
+import { SignOutButton, useUser } from "@clerk/nextjs";
 
 export const Header: FC = () => {
-  const { status: sessionStatus, data: sessionData } = useSession();
+  const { isSignedIn: sessionStatus, user: sessionData } = useUser();
 
   const [showSideNav, setShowSideNav] = useState(false);
 
@@ -23,7 +23,7 @@ export const Header: FC = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 z-30 h-20 w-full bg-white shadow-lg">
+      <header className="fixed left-0 top-0 z-30 h-20 w-full bg-white shadow-lg">
         <div className="m-auto flex h-full w-11/12 items-center justify-between">
           <div className="flex items-center gap-5">
             <RiMenu5Fill
@@ -57,7 +57,7 @@ export const Header: FC = () => {
                 placeholder="symptom, service, doctor name"
               />
             </div>
-            {sessionData?.user.role === "PATIENT" ? (
+            {sessionData?.unsafeMetadata?.role === "PATIENT" ? (
               <Link
                 href=""
                 className="group flex items-center gap-2 hover:text-purple-600"
@@ -112,7 +112,7 @@ export const Header: FC = () => {
                   />
                 </div>
 
-                {sessionData?.user.role === "PATIENT" && (
+                {sessionData?.unsafeMetadata?.role === "PATIENT" && (
                   <div className="mt-6 flex flex-col font-semibold tracking-tight [&>*]:py-2.5">
                     <p className="text-gray-500">ACCOUNT</p>
                     <div>
@@ -131,12 +131,11 @@ export const Header: FC = () => {
                       </Link>
                     </div>
                     <div>
-                      <button
-                        onClick={() => void signOut()}
-                        className="hover:text-purple-600"
-                      >
-                        Sign out
-                      </button>
+                      <SignOutButton>
+                        <button className="hover:text-purple-600">
+                          Sign out
+                        </button>
+                      </SignOutButton>
                     </div>
                   </div>
                 )}
