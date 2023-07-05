@@ -58,10 +58,11 @@ export const Header: FC = () => {
               />
             </div>
             {isSignedIn ? (
-              <UserButton />
+              <UserButton afterSignOutUrl="/" signInUrl="/sign-in" />
             ) : (
               <Link
-                href="/login"
+                href="/sign-in"
+                passHref
                 className="group flex items-center gap-2 hover:text-purple-600"
               >
                 <RiUser6Line className="text-2xl" />

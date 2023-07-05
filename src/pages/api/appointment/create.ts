@@ -1,6 +1,6 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
 import { prisma } from "lib/prisma";
-import * as nodemailer from "nodemailer";
+import nodemailer from "nodemailer";
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,68 +9,28 @@ export default async function handler(
   const { name, address, phoneNo, email, doctorId } = req.body;
 
   const fromEmail = "info@ridemcr.com";
-  nodemailer.createTestAccount((err, account) => {
-    if (err) {
-      console.error("Failed to create a testing account");
-      console.error(err);
-      return process.exit(1);
-    }
 
-    console.log("Credentials obtained, sending message...");
-
-    // NB! Store the account object values somewhere if you want
-    // to re-use the same account for future mail deliveries
-
-    // Create a SMTP transporter object
-    let transporter = nodemailer.createTransport(
-      {
-        host: account.smtp.host,
-        port: account.smtp.port,
-        secure: account.smtp.secure,
-        auth: {
-          user: account.user,
-          pass: account.pass,
-        },
-        logger: true,
-        transactionLog: true, // include SMTP traffic in the logs
-        allowInternalNetworkInterfaces: false,
-      },
-      {
-        // default message fields
-
-        // sender info
-        from: account.user,
-      }
-    );
-
-    // Message object
-    let message = {
-      // Comma separated list of recipients
-      to: email,
-
-      // Subject of the message
-      subject: "appointment booked",
-
-      // plaintext body
-      text: "appointment booked",
-
-      // HTML body
-      html: "appointment booked",
-    };
-
-    transporter.sendMail(message, (error, info) => {
-      if (error) {
-        console.log("Error occurred");
-        console.log(error.message);
-        return process.exit(1);
-      }
-
-      console.log("Message sent successfully!");
-      console.log(nodemailer.getTestMessageUrl(info));
-
-      // only needed when using pooled connections
-      transporter.close();
-    });
+  const transporter = nodemailer.createTransport({
+    host: "smtpout.secureserver.net",
+    secure: true,
+    secureConnection: false, // TLS requires secureConnection to be false
+    tls: {
+      ciphers: "SSLv3",
+    },
+    requireTLS: true,
+    port: 465,
+    debug: true,
+    auth: {
+      user: fromEmail,
+      pass: "Saeed.1965",
+    },
+  });
+  const info = await transporter.sendMail({
+    from: fromEmail,
+    to: "mugheesraza@protonmail.com",
+    subject: "appointment",
+    text: `appointment booked`,
+    html: `appointment booked`,
   });
 
   try {
