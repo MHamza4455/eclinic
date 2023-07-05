@@ -76,12 +76,18 @@ const HomePage: NextPageWithLayout = () => {
                 </button>
               </form>
             </div>
-            <button className="my-5 flex w-80 items-center justify-center rounded-none bg-blue-700 p-4 font-semibold text-white hover:bg-blue-400">
+            <Link
+              href="/specialities/doctor"
+              className="my-5 flex w-80 items-center justify-center rounded-none bg-blue-700 p-4 font-semibold text-white hover:bg-blue-400"
+            >
               I Need To See A Doctor Urgently
-            </button>
-            <button className="my-5 flex w-80 items-center justify-center rounded-none border  border-blue-700 bg-white p-4 font-semibold text-blue-700 hover:bg-blue-100">
+            </Link>
+            <Link
+              href="/specialities/doctor"
+              className="my-5 flex w-80 items-center justify-center rounded-none border  border-blue-700 bg-white p-4 font-semibold text-blue-700 hover:bg-blue-100"
+            >
               I Need To See A Doctor Urgently
-            </button>
+            </Link>
           </div>
         </div>
       </div>
