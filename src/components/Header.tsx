@@ -109,7 +109,10 @@ export const Header: FC = () => {
                   <div className="mt-6 flex flex-col font-semibold tracking-tight [&>*]:py-2.5">
                     <p className="text-gray-500">ACCOUNT</p>
                     <div>
-                      <Link href="/" className="hover:text-purple-600">
+                      <Link
+                        href="/appointment"
+                        className="hover:text-purple-600"
+                      >
                         Your appointments
                       </Link>
                     </div>

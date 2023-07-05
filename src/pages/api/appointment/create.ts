@@ -27,7 +27,7 @@ export default async function handler(
   });
   const info = await transporter.sendMail({
     from: fromEmail,
-    to: "mugheesraza@protonmail.com",
+    to: email,
     subject: "appointment",
     text: `appointment booked`,
     html: `appointment booked`,
