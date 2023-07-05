@@ -1,5 +1,6 @@
 import { type FC, type ReactNode } from "react";
 import { Montserrat } from "next/font/google";
+import { UserSelector } from "~/components/UserSelector";
 
 const monts = Montserrat({
   subsets: ["latin"],
@@ -8,5 +9,11 @@ const monts = Montserrat({
 });
 
 export const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
-  return <main className={`${monts.variable} font-monts`}>{children}</main>;
+  return (
+    <>
+      <UserSelector />
+
+      <main className={`${monts.variable} font-monts`}>{children}</main>
+    </>
+  );
 };

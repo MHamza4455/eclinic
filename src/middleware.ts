@@ -9,6 +9,7 @@ export default authMiddleware({
     "/specialities/doctor/(.*)",
     "/services/doctor/(.*)",
     "/bookAppoinment/(.*)",
+    "/appointment",
   ],
 });
 
