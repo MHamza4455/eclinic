@@ -6,12 +6,12 @@ generator client {
 }
 
 datasource db {
-    provider = "mysql"
+    provider     = "mysql"
     // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
     // Further reading:
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
     // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
-    url      = env("DATABASE_URL")
+    url          = env("DATABASE_URL")
     relationMode = "prisma"
     // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
@@ -36,7 +36,6 @@ model User {
     patient               Patient?
     doctor                Doctor?
     admin                 Admin?
-   
 }
 
 model Admin {
@@ -56,22 +55,22 @@ model Patient {
 }
 
 model Doctor {
-    userId        Int              @id
-    user          User             @relation(fields: [userId], references: [id])
-    title         String?
-    licenseNumber String?
+    userId          Int              @id
+    user            User             @relation(fields: [userId], references: [id])
+    title           String?
+    licenseNumber   String?
     // in years
-    experience    Int?
-    fees          Int?
-    discount      Int?
-    address       String?
-    isVerified    Boolean          @default(false)
-    allowBooking  Boolean          @default(false)
-    specialties   Specialty[]
-    symptoms      Symptom[]
-    services      Service[]
-    schedules     DoctorSchedule[]
-    bookAppointment  BookAppoinment[]
+    experience      Int?
+    fees            Int?
+    discount        Int?
+    address         String?
+    isVerified      Boolean          @default(false)
+    allowBooking    Boolean          @default(false)
+    specialties     Specialty[]
+    symptoms        Symptom[]
+    services        Service[]
+    schedules       DoctorSchedule[]
+    bookAppointment BookAppoinment[]
 
     @@index([userId])
 }
@@ -116,18 +115,19 @@ model Hospital {
     country            String
     doctorDailyTimings DoctorDailyTiming[]
 }
+
 model BookAppoinment {
-    
-    id          Int      @id @default(autoincrement())
-    doctorId    Int      
-    doctor      Doctor   @relation(fields: [doctorId], references: [userId])
-    name        String   @unique
-    address     String?
-    phoneNo     String?
-    email       String?
+    id       Int     @id @default(autoincrement())
+    doctorId Int
+    doctor   Doctor  @relation(fields: [doctorId], references: [userId])
+    name     String
+    address  String?
+    phoneNo  String?
+    email    String?
 
     @@index([doctorId])
 }
+
 model Appointment {
     id                  Int               @id @default(autoincrement())
     patientUserId       Int
@@ -175,5 +175,3 @@ enum AdminRole {
     EDITOR
     AUTHOR
 }
-
-

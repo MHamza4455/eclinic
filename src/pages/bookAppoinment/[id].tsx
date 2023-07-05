@@ -1,11 +1,12 @@
+import { Prisma, PrismaClient } from "@prisma/client";
+import React, { useState } from "react";
+import { Service, Specialty } from "@prisma/client";
+
 import { GetServerSideProps } from "next";
-import { useRouter } from "next/router";
-import { prisma } from "lib/prisma";
 import { NextPageWithLayout } from "../_app";
 import { UserLayout } from "~/layouts/UserLayout";
-import React, { useState } from "react";
-import { Specialty, Service } from "@prisma/client";
-import { Prisma, PrismaClient } from "@prisma/client";
+import { prisma } from "lib/prisma";
+import { useRouter } from "next/router";
 
 interface DoctorData {
   id: number;
@@ -53,7 +54,7 @@ const BookAppointment: NextPageWithLayout = ({
   };
   async function create(data: FormData) {
     try {
-      fetch("http://localhost:3000/api/appointment/create", {
+      await fetch("http://localhost:3000/api/appointment/create", {
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",

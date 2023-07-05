@@ -1,7 +1,9 @@
+import { type ReactElement } from "react";
+import { UserLayout } from "~/layouts/UserLayout";
 import { api } from "~/utils/api";
 import { useUser } from "@clerk/nextjs";
 
-export default function appointment() {
+export default function Appointment() {
   const { data, isSuccess } = api.api.getAppointment.useQuery();
   const { isSignedIn, user } = useUser();
   return (
@@ -37,3 +39,7 @@ export default function appointment() {
     </>
   );
 }
+
+Appointment.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};
